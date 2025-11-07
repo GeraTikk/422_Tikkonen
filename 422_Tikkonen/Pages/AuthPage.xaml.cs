@@ -105,9 +105,9 @@ namespace _422_Tikkonen.Pages
                     PasswordBox.Clear();
                     captchaInput.Clear();
 
-                    captchaBlock.Visibility = Visibility.Hidden;
-                    captchaInput.Visibility = Visibility.Hidden;
-                    submitCaptcha.Visibility = Visibility.Hidden;
+                    captchaBlock.Visibility = Visibility.Collapsed;
+                    captchaInput.Visibility = Visibility.Collapsed;
+                    submitCaptcha.Visibility = Visibility.Collapsed;
 
                     TextBoxLogin.Visibility = Visibility.Visible;
                     PasswordBox.Visibility = Visibility.Visible;
@@ -116,18 +116,18 @@ namespace _422_Tikkonen.Pages
                     ButtonChangePassword.Visibility = Visibility.Visible;
                     return;
 
-                case Visibility.Hidden:
+                case Visibility.Collapsed:
                     // Показываем капчу, скрываем форму авторизации
                     CaptchaChange();
                     captchaBlock.Visibility = Visibility.Visible;
                     captchaInput.Visibility = Visibility.Visible;
                     submitCaptcha.Visibility = Visibility.Visible;
 
-                    TextBoxLogin.Visibility = Visibility.Hidden;
-                    PasswordBox.Visibility = Visibility.Hidden;
-                    ButtonEnter.Visibility = Visibility.Hidden;
-                    ButtonReg.Visibility = Visibility.Hidden;
-                    ButtonChangePassword.Visibility = Visibility.Hidden;
+                    TextBoxLogin.Visibility = Visibility.Collapsed;
+                    PasswordBox.Visibility = Visibility.Collapsed;
+                    ButtonEnter.Visibility = Visibility.Collapsed;
+                    ButtonReg.Visibility = Visibility.Collapsed;
+                    ButtonChangePassword.Visibility = Visibility.Collapsed;
                     return;
             }
         }

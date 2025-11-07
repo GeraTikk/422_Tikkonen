@@ -35,18 +35,14 @@ namespace _422_Tikkonen.Pages
             if (UserComboBox.SelectedItem is User currentUser && DiagrammComboBox.SelectedItem is SeriesChartType currentType)
             {
                 Series currentSeries = ChartPayments.Series.FirstOrDefault();
+
                 currentSeries.ChartType = currentType;
                 currentSeries.Points.Clear();
 
                 var categoriesList = _context.Category.ToList();
                 foreach (var category in categoriesList)
                 {
-                    // Сумма платежей = Price * Num
-                    decimal totalAmount = _context.Payment
-                        .Where(p => p.UserID == currentUser.ID && p.CategoriID == category.ID)
-                        .Sum(p => p.Price * p.Num);
-
-                    currentSeries.Points.AddXY(category.Name, totalAmount);
+                    currentSeries.Points.AddXY(category.Name, _context.Payment.ToList().Where(u => u.User == currentUser && u.Category == category).Sum(u => u.Price * u.Num));
                 }
             }
         }
