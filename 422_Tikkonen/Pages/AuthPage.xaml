@@ -1,0 +1,136 @@
+﻿<Page x:Class="_422_Tikkonen.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="Авторизация"
+      Height="500" Width="400">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Grid Grid.Row="0" Margin="0,29,0,326" Grid.RowSpan="2">
+            <TextBlock Text="АВТОРИЗАЦИЯ" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Grid>
+
+        <!-- Основная форма авторизации -->
+        <Grid Grid.Row="1" VerticalAlignment="Center" Margin="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Логин -->
+            <TextBlock 
+                       Text="Логин:" 
+                       FontWeight="SemiBold" Margin="0,-1,0,0" VerticalAlignment="Top"/>
+
+            <TextBox Grid.Row="0" 
+                     x:Name="TextBoxLogin"
+                     Margin="0,20,0,0"
+                     ToolTip="Введите ваш логин"/>
+
+            <!-- Пароль -->
+            <TextBlock Grid.Row="2" 
+                       Text="Пароль:" 
+                       FontWeight="SemiBold" VerticalAlignment="Top"/>
+
+            <PasswordBox Grid.Row="2" 
+                         x:Name="PasswordBox"
+                         Margin="0,20,0,0"
+                         ToolTip="Введите ваш пароль"/>
+
+            <!-- Кнопка входа -->
+            <Button Grid.Row="4"
+                    x:Name="ButtonEnter"
+                    Content="ВОЙТИ"
+                    FontWeight="Bold"
+                    Click="ButtonEnter_Click"/>
+
+            <!-- Капча -->
+            <Grid Grid.Row="6" 
+                  x:Name="captchaBlock"
+                  Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Введите капчу:" 
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"/>
+
+                <!-- Текст капчи -->
+                <TextBox Grid.Row="2"
+                         x:Name="captcha"
+                         CommandManager.PreviewExecuted="textBox_PreviewExecuted"
+                         ContextMenu="{x:Null}"
+                         Foreground="Red"
+                         FontStyle="Italic"
+                         FontWeight="Bold"
+                         Background="#FFF8F9FA"
+                         IsReadOnly="True"
+                         HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         FontSize="18"
+                         BorderBrush="#FFEAECEE"
+                         BorderThickness="1"
+                         Text="CAPTCHA"/>
+
+                <!-- Поле для ввода капчи -->
+                <TextBox Grid.Row="4"
+                         x:Name="captchaInput"
+                         ToolTip="Введите текст капчи"
+                         HorizontalContentAlignment="Center"/>
+
+                <!-- Кнопка подтверждения капчи -->
+                <Button Grid.Row="6"
+                        x:Name="submitCaptcha"
+                        Content="ПОДТВЕРДИТЬ"
+                        FontWeight="Bold"
+                        Click="submitCaptcha_Click"/>
+            </Grid>
+        </Grid>
+
+        <!-- Дополнительные кнопки -->
+        <Grid Grid.Row="1" Margin="20,308,20,67">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    x:Name="ButtonReg"
+                    Content="Регистрация"
+                    Click="ButtonReg_Click"/>
+
+            <Button Grid.Column="2"
+                    x:Name="ButtonChangePassword"
+                    Content="Сменить пароль"
+                    Click="ButtonChangePassword_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

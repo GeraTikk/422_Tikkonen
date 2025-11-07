@@ -1,0 +1,61 @@
+﻿<Page x:Class="_422_Tikkonen.Pages.AddPaymentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_422_Tikkonen.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="800"
+      Title="Добавить платеж">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Название платежа -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Название платежа:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="TBPaymentName" ToolTip="Название платежа" Text="{Binding Name}" Margin="10,0,0,0"/>
+
+        <!-- Количество -->
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Количество:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TBCount" Text="{Binding Num}" ToolTip="Количество" Margin="10,0,0,0"/>
+
+        <!-- Сумма -->
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Сумма:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="TBAmount" ToolTip="Сумма" Text="{Binding Price}" Margin="10,0,0,0"/>
+
+        <!-- Дата -->
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Дата:" VerticalAlignment="Center"/>
+        <DatePicker Grid.Row="6" Grid.Column="1" x:Name="DPDate" SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Дата" Margin="10,0,0,0"/>
+
+        <!-- Пользователь -->
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Пользователь:" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="8" Grid.Column="1" x:Name="CBUser" SelectedValuePath="Id" SelectedValue="{Binding Path=UserId}" ToolTip="Выбор клиента" Margin="10,0,0,0"/>
+
+        <!-- Категория -->
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Категория:" VerticalAlignment="Top"/>
+        <ComboBox Grid.Row="10" Grid.Column="1" x:Name="CBCategory" SelectedValuePath="Id" SelectedValue="{Binding Path=CategoryId}" ToolTip="Выбор категории" Margin="10,0,0,0" Height="21" VerticalAlignment="Top"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Left" Margin="129,42,0,-22" Grid.Column="1">
+            <Button x:Name="ButtonSave" Content="Сохранить" ToolTip="Кнопка сохранить" Click="ButtonSave_Click" Margin="0,0,10,0"/>
+            <Button x:Name="ButtonClean" Content="Очистить" ToolTip="Кнопка очистить" Click="ButtonClean_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

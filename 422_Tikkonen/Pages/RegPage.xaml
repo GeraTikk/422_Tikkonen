@@ -1,0 +1,91 @@
+﻿<Page x:Class="_422_Tikkonen.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="Регистрация"
+      Height="600" Width="500">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Grid Grid.Row="0">
+            <TextBlock Text="РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="20"/>
+        </Grid>
+
+        <!-- Основное содержимое -->
+        <Grid Grid.Row="1" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Логин -->
+            <TextBlock Grid.Row="0" Text="Логин:" FontWeight="SemiBold"/>
+            <TextBox Grid.Row="1" x:Name="txtbxLog" ToolTip="Введите логин" TextChanged="txtbxLog_TextChanged"/>
+            <TextBlock Grid.Row="2" x:Name="lblLogHitn" Text="Введите логин" Foreground="Gray" FontSize="10"
+                       MouseLeftButtonUp="lblLogHitn_MouseLeftButtonUp"/>
+
+            <!-- Пароль -->
+            <TextBlock Grid.Row="4" Text="Пароль:" FontWeight="SemiBold"/>
+            <PasswordBox Grid.Row="5" x:Name="passBxFrst" 
+                        ToolTip="Введите пароль (минимум 6 символов, английская раскладка, хотя бы одна цифра)"
+                        PasswordChanged="passBxFrst_PasswordChanged"/>
+            <TextBlock Grid.Row="6" x:Name="lblPassHitn" Text="Введите пароль" Foreground="Gray" FontSize="10"
+                       MouseLeftButtonUp="lblPassHitn_MouseLeftButtonUp"/>
+
+            <!-- Подтверждение пароля -->
+            <TextBlock Grid.Row="8" Text="Подтвердите пароль:" FontWeight="SemiBold"/>
+            <PasswordBox Grid.Row="9" x:Name="passBxScnd" ToolTip="Повторите пароль" 
+                        PasswordChanged="passBxScnd_PasswordChanged"/>
+            <TextBlock Grid.Row="10" x:Name="lblPassSecHitn" Text="Повторите пароль" Foreground="Gray" FontSize="10"
+                       MouseLeftButtonUp="lblPassSecHitn_MouseLeftButtonUp"/>
+
+            <!-- Роль -->
+            <TextBlock Grid.Row="12" Text="Роль:" FontWeight="SemiBold"/>
+            <ComboBox Grid.Row="13" x:Name="comboBxRole" ToolTip="Выберите роль пользователя" 
+                     SelectionChanged="comboBxRole_SelectionChanged">
+                <ComboBoxItem Content="User" IsSelected="True"/>
+                <ComboBoxItem Content="Admin"/>
+            </ComboBox>
+
+            <!-- ФИО -->
+            <TextBlock Grid.Row="15" Text="ФИО:" FontWeight="SemiBold"/>
+            <TextBox Grid.Row="16" x:Name="txtbxFIO" ToolTip="Введите Фамилию Имя Отчество" 
+                    TextChanged="txtbxFIO_TextChanged"/>
+            <TextBlock Grid.Row="17" x:Name="lblFioHitn" Text="Введите ФИО" Foreground="Gray" FontSize="10"
+                       MouseLeftButtonUp="lblFioHitn_MouseLeftButtonUp"/>
+
+            <!-- Кнопка регистрации -->
+            <Button Grid.Row="19" x:Name="regButton" Content="РЕГИСТРАЦИЯ" 
+                   FontWeight="Bold" Click="regButton_Click" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Page>
